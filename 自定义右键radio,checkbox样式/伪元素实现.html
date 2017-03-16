@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伪元素实现</title>
+    <style>
+        .wrap{
+            margin: 20px auto;
+            width: 400px;
+            height: 400px;
+            position: relative;
+        }
+
+        input{
+            display: none;
+            height: 16px;
+        }
+        label{
+            display: block;
+            height: 16px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+       label.radio::before {
+           content: '';
+           display: block;
+           width: 16px;
+           height: 16px;
+           border: 1px solid #CCC;
+           border-radius: 50%;
+           position: absolute;
+           top: 0;
+           left: 0;
+       }
+       label.radio::after{
+           content: '';
+           display: none;
+           width:8px;
+           height:8px;
+           background: crimson;
+           border-radius: 50%;
+           position: absolute;
+           top: 5px;
+           left: 5px;
+       }
+        input[type="radio"]:checked + label.radio::before {
+            border: 1px solid crimson;
+        }
+      input[type="radio"]:checked+label.radio::after{
+          display: block;
+      }
+
+        label.checkbox::before {
+            content: '';
+            display: block;
+            width: 16px;
+            height: 16px;
+            border: 1px solid #CCC;
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+        label.checkbox::after{
+            content: '';
+            display: none;
+            width:6px;
+            height:3px;
+            border-left: 2px solid #ccc;
+            border-bottom: 2px solid #ccc;
+            transform: rotate(-45deg);
+            background: crimson;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+        }
+        input[type="checkbox"]:checked + label.checkbox::before {
+            border: 1px solid crimson;
+        }
+        input[type="checkbox"]:checked+label.checkbox::after{
+            display: block;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+
+<div class="wrap">
+    <input type="radio" id="select1" name="a">
+    <label for="select1" class="radio"></label>
+    <input type="checkbox" id="select2" name="a">
+    <label for="select2" class="checkbox"></label>
+</div>
+</body>
+</html>
