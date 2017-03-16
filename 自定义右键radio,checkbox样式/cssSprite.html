@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css Sprite实现</title>
+    <style>
+      /*  .box{
+            -webkit-appearance: checkbox;
+        !*将任意的元素转化成相应浏览器定义的元素的外观*!
+        }*/
+      div{
+          margin: 0 auto;
+          width: 500px;
+          height: 500px;
+        }
+        input {
+            display: none;
+            height: 16px;
+        }
+        label{
+            display: block;
+            height: 16px;
+            margin-bottom: 16px;
+        }
+      label.radio {
+          background: url('img/bg.png') no-repeat 0 -14px;
+      }
+      label.checkbox {
+          background: url('img/bg.png') no-repeat 0 -34px;
+      }
+      input[type="radio"]:checked + label.radio {
+          background: url('img/bg.png') no-repeat 0 -56px;
+      }
+      input[type="checkbox"]:checked + label.checkbox {
+          background: url('img/bg.png') no-repeat 0 -78px;
+      }
+
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+
+    <input type="radio" id="select1" name="a">
+    <label for="select1" class="radio"></label>
+
+    <input type="checkbox" id="select2" name="a">
+    <label for="select2" class="checkbox"></label>
+
+</div>
+
+
+</body>
+</html>

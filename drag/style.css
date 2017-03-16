@@ -1,0 +1,25 @@
+.wrap{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin:80px;
+}
+
+.frame{
+    border: 1px solid #000;
+    min-width: 300px;
+    min-height:200px;
+}
+
+.frame div {
+    cursor: pointer;
+    width: 90%;
+    margin: 8px auto;
+    border: 1px solid #000;
+    text-align: center;
+}
+.box{
+    margin: 100px auto;
+    width:280px;
+    height: 140px;
+}

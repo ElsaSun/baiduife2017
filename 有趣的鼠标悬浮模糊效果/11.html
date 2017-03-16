@@ -1,0 +1,145 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>task-1</title>
+</head>
+<style type="text/css">
+    body {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        background: #eeeeee;
+        flex-flow: column;
+    }
+
+    #bg {
+        width: 380px;
+        height: 350px;
+        background: #fff;
+        position: absolute;
+        top: 100px;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: stretch;
+        align-items: stretch;
+        -webkit-justify-content: center;
+        justify-content: center;
+        flex-flow: row;
+        background: #fff;
+    }
+
+    #main {
+        background-size: contain;
+        width: 380px;
+        height: 300px;
+        position: relative;
+        top: 20px;
+    }
+    /*鼠标悬停产生模糊效果*/
+    #bg:hover #main{
+        -webkit-filter: blur(10px);
+        /* Chrome, Opera */
+        -moz-filter: blur(10px);
+        -ms-filter: blur(10px);
+        filter: blur(10px);
+        filter: progid: DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false);
+    }
+    /*文字流光渐变效果*/
+    #word {
+        position: absolute;
+        width: 300px;
+        height: 180px;
+        top: 100px;
+        text-align: center;
+        background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-background-size: 200% 100%;
+        -webkit-animation: word-animation 1s infinite linear;
+        opacity: 0;
+    }
+
+    @-webkit-keyframes word-animation {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: -100% 0;
+        }
+    }
+    /*border产生*/
+    a::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        height: 0;
+        border: 3px solid ghostwhite;
+        border-width: 0 3px;
+        overflow: hidden;
+        visibility: hidden;
+        transition: all .8s;
+        box-sizing: content-box;
+    }
+
+    a::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 0;
+        height: 100%;
+        border: 3px solid ghostwhite;
+        border-width: 3px 0;
+        overflow: hidden;
+        visibility: hidden;
+        transition: all .8s;
+        box-sizing: content-box;
+    }
+
+    #word:hover{
+        opacity: 1;
+    }
+    #word:hover a {
+        opacity: 1
+    }
+
+    #word:hover a::before {
+        height: 100%;
+        visibility: visible;
+        top: 0;
+    }
+
+    #word:hover a::after {
+        width: 100%;
+        visibility: visible;
+        left: 0;
+    }
+</style>
+
+<body>
+<div id="bg">
+    <img src="img/bg.jpg" id="main">
+    <div id="word">
+        <a style="font-size: 24px;"><b>哎呦，两脚兽，有点厉害哦~</b></br><b>CSS3要好好学</b></a>
+    </div>
+</div>
+</body>
+<!-- <script type="text/javascript">
+window.onload = function() {
+    var bg = document.getElementById("bg");
+    bg.onmouseover = function() {
+            document.getElementById("word").style.display = "block";
+        }
+}
+</script>
+ -->
+</html>
